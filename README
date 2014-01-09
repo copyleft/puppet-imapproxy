@@ -1,0 +1,52 @@
+#imapproxy
+
+####Table of Contents
+
+1. [Overview]
+2. [Module Description - What the module does and why it is useful]
+3. [Setup - The basics of getting started with ::imapproxy
+    * [What [::imapproxy] affects]
+    * [Beginning with ::imapproxy]
+4. [Usage - Configuration options and additional functionality]
+5. [Limitations - OS compatibility, etc.]
+6. [Development - Guide for contributing to the module]
+
+
+##Overview
+
+Simple module to manage and install the imapproxy package
+
+In order to avoid the bug https://bugs.launchpad.net/ubuntu/+source/up-imapproxy/+bug/324736 the Configfile will have to be in place before the package is installed
+
+##Module Description
+
+The ::imapproxy module will manage the service imapproxy as well as the configuration file
+
+## Setup
+
+### What ::imapproxy affects
+
+* The service will be managed to be 'running' if in use
+* The imapproxy config will be managed
+
+### Beginning with ::imapproxy
+
+Simply include the class in a node or class will get you running.
+
+node 'fqdn' {
+  class{'imapproxy': server_hostname => 'imapserver';}
+}
+
+To remove imapproxy from a server, set imapproxy to absent, it defaults to present.
+
+## Limitations
+
+Tested on Ubuntu 12.04LTS and Puppet 3.X.
+
+## Development
+
+http://github.com/copyleft/puppet-imapproxy
+
+## Release notes
+
+1.0 initial release
